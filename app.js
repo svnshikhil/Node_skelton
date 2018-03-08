@@ -9,7 +9,7 @@ const port = config.get('serverport')
 const host = config.get('host')
 
 // Routes
-const getData = require('./server/getData.js')
+const getData = require('./routes/getData.js')
 
 app.use(compression());
 app.use(bodyParser.json());
