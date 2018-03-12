@@ -7,13 +7,15 @@ const ip = require('ip');
 const config = require('config');
 const port = config.get('serverport')
 const host = config.get('host')
-var logger = require('morgan');
-
+var morgan = require('morgan');
+var fs = require('fs')
 
 // Routes
 const sample = require('./routes/sample.js')
 
-app.use(logger('dev'));
+app.use(morgan('common', {
+	stream: fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' })
+}))
 app.use(compression());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
