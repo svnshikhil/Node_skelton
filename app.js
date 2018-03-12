@@ -7,10 +7,13 @@ const ip = require('ip');
 const config = require('config');
 const port = config.get('serverport')
 const host = config.get('host')
+var logger = require('morgan');
+
 
 // Routes
 const sample = require('./routes/sample.js')
 
+app.use(logger('dev'));
 app.use(compression());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
