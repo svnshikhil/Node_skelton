@@ -1,0 +1,19 @@
+{
+    "extends": "rallycoding",
+    "rules": {
+        "no-param-reassign": 0,
+        "no-underscore-dangle": 0,
+        "max-len": [
+            1,
+            150,
+            4
+        ]
+    },
+    "import/no-extraneous-dependencies": [
+        "error",
+        {
+            "devDependencies": true
+        }
+    ],
+    "eslint no-useless-escape": "error"
+}
