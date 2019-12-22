@@ -8,10 +8,9 @@ const config = require('config');
 const morgan = require('morgan');
 const fs = require('fs');
 const port = config.get('serverport');
-const middlewares = require('./middlewares')
 
-// Routes
-const sample = require('./routes/sample');
+const routes = require('./routes');
+const middlewares = require('./middlewares')
 
 app.use(morgan('common', {
 	stream: fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' })
@@ -25,7 +24,8 @@ app.get('/', (req, res) => {
 	res.send('Hello world...');
 });
 
-app.use('/au', sample);
+app.use(routes);
+
 // error hndlers
 
 app.use(middlewares.jsonSchemaValidator);
@@ -38,5 +38,5 @@ app.listen(port, () => {
 	console.log(`${chalk.bold('Access URLs:')}${divider}
 	Localhost: ${chalk.magenta(`http://localhost:${port}`)}
 	On Your Network: ${chalk.magenta(`http://${ip.address()}:${port}`)}${divider}
-		  `);
+	`);
 });
