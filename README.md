@@ -12,6 +12,11 @@ Node.js, featuring:
 
 ---
 
+## Docker
+
+- Run `docker-compose up` and Compose will start and run your entire app.
+
+
 ## Application Structure
 
 - `index.js` - The entry point to our application. This file defines our express server and connects it to postgres using ORM.
@@ -23,9 +28,9 @@ Node.js, featuring:
 ## Scripts
 
 - `db:migration:make` - To create a migration.
-- `db:migration:run` - To run all migration.
+- `db:migration` - To run all migration.
 - `db:seed:make` - To create a seed.
-- `db:seed:run` - To run all seeds.
+- `db:seed` - To run all seeds.
 
 ## Authentication
 - Use Authorization header

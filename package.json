@@ -12,6 +12,7 @@
         "prod:db:migrate": "NODE_ENV=production && npm run knex migrate:latest",
         "db:migrate:make": "npm run knex migrate:make",
         "db:migrate:undo": "npm run knex migrate:rollback",
+        "db:seed:make": "npm run knex seed:make",
         "db:seed": "npm run knex seed:run",
         "knex": "knex --knexfile src/config/knexfile.js"
     },
