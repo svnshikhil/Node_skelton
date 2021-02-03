@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  api:
+    tty: true
+    build:
+      context: .
+      args:
+        - NODE_ENV=development
+        - PORT=3001
+    container_name: api.myapp.local
+    volumes:
+      - ./:/myapp
+    ports:
+      - 3001:3001
+    command: npm run dev
+    environment:
+      - NODE_ENV=development
+      - PORT=3001
+    links:
+      - database
+  database:
+    image: mdillon/postgis:9.6
+    container_name: db.myapp.local
+    restart: always
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: dbpwd
+      POSTGRES_DB: myapp
+      PGDATA: /tmp
+    ports:
+      - 5432:5432
+
+volumes:
+  pg-data:

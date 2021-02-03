@@ -1,0 +1,12 @@
+{
+    "name": "NODEJS API",
+    "version": "1.0.0",
+    "url" : "{{baseUrl}}/v1",
+    "header": {
+        "title": "NODEJS API"
+    },
+    "description": "NODEJS API Documentation",
+    "template": {
+        "forceLanguage": "en"
+    }
+}
